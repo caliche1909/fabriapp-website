@@ -7,7 +7,16 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker:build": "docker build -t fabriapp-website .",
+    "docker:run": "docker run -d -p 3000:80 --name fabriapp-container fabriapp-website",
+    "docker:run-dev": "docker run -d -p 3000:80 --name fabriapp-container-dev fabriapp-website",
+    "docker:stop": "docker stop fabriapp-container",
+    "docker:remove": "docker rm fabriapp-container",
+    "docker:clean": "npm run docker:stop && npm run docker:remove",
+    "docker:logs": "docker logs fabriapp-container",
+    "docker:exec": "docker exec -it fabriapp-container sh",
+    "docker:restart": "npm run docker:clean && npm run docker:build && npm run docker:run"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.10",
