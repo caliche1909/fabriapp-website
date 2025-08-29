@@ -7,7 +7,7 @@
 # =============================================================================
 # STAGE 1: BUILD STAGE 🔨 (Solo para compilar, se descarta después)
 # =============================================================================
-FROM node:18-alpine AS builder
+FROM node:22-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -49,12 +49,12 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 # Copy lightweight nginx config
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Expose port
-EXPOSE 80
+# Expose port 8080 for Cloud Run compatibility
+EXPOSE 8080
 
-# Simple health check without curl (reduce dependencies)
+# Simple health check for Cloud Run (using port 8080)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=2 \
-    CMD wget --no-verbose --tries=1 --spider http://localhost/ || exit 1
+    CMD wget --no-verbose --tries=1 --spider http://localhost:8080/ || exit 1
 
 # Labels (minimal)
 LABEL project="fabriapp-website" version="1.0"
