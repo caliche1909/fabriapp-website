@@ -60,14 +60,14 @@ const Header = () => {
                     </nav>
 
                     {/* CTA Button */}
-                    <div className="hidden md:flex items-center space-x-4 md:hidden lg:block">
+                    <div className="hidden md:flex items-center space-x-4 lg:block">
                         <button 
                         onClick={() => handleNavClick('productos')} 
                         className="btn-secondary bg-blue-600 py-2 rounded-3xl text-white px-3 hover:bg-blue-700 cursor-pointer transition-transform duration-200 hover:scale-105">
                             Ver Demo
                         </button>
                         <button 
-                        onClick={() => handleNavClick('contacto')} 
+                        onClick={() => window.open('https://www.fabriapp.com/empresa', '_blank')} 
                         className="btn-primary bg-[#09046b] py-2 rounded-3xl text-white px-3 hover:bg-[#09046b]/90 cursor-pointer transition-transform duration-200 hover:scale-105">
                             Empezar ya!
                         </button>
@@ -122,7 +122,7 @@ const Header = () => {
                                 <button onClick={() => handleNavClick('productos')} className="block btn-secondary text-center w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg">
                                     Ver Demo
                                 </button>
-                                <button onClick={() => handleNavClick('contacto')} className="block btn-primary text-center w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg">
+                                <button onClick={() => window.open('https://www.fabriapp.com/empresa', '_blank')} className="block btn-primary text-center w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg">
                                     Empezar Ahora
                                 </button>
                             </div>
