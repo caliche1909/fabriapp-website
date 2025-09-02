@@ -31,25 +31,25 @@ const Contact = () => {
         {
             icon: Mail,
             title: "Email",
-            detail: "contacto@fabriapp.com",
-            link: "mailto:contacto@fabriapp.com"
+            detail: "soporte@fabriapp.com",
+            link: "mailto:soporte@fabriapp.com"
         },
         {
             icon: Phone,
             title: "Teléfono",
             detail: "+(57) 3232951780",
-            link: "tel:+573232951780"
+            link: "https://wa.me/573232951780?text=Hola%2C%20vengo%20de%20la%20página%20de%20FabriApp%2C%20y%20estoy%20aquí%20porque%20me%20gustaría%20tener%20más%20información"
         },
         {
             icon: MapPin,
             title: "Oficina Principal",
-            detail: "123 Industrial Ave, Tech District",
+            detail: "Calle 18 # 16-10 Centro, Pasto, Nariño, Colombia",
             link: "#"
         },
         {
             icon: Clock,
             title: "Horario de Atención",
-            detail: "Lun-Vie: 8:00 AM - 6:00 PM",
+            detail: "Lun-Vie: 8:00 AM - 12:00 PM y de 2:00 PM - 6:00 PM",
             link: "#"
         }
     ];
@@ -79,23 +79,33 @@ const Contact = () => {
                         <div className="space-y-6 mb-10">
                             {contactInfo.map((info, index) => {
                                 const Icon = info.icon;
+                                
+                                const handleCardClick = () => {
+                                    if (info.link !== "#") {
+                                        if (info.link.startsWith("https://wa.me/")) {
+                                            window.open(info.link, '_blank');
+                                        } else {
+                                            window.location.href = info.link;
+                                        }
+                                    }
+                                };
+                                
                                 return (
-                                    <div key={index} className="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                                    <div 
+                                        key={index} 
+                                        className={`flex items-start space-x-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 ${
+                                            info.link !== "#" ? "cursor-pointer hover:scale-[1.02]" : ""
+                                        }`}
+                                        onClick={handleCardClick}
+                                    >
                                         <div className="bg-blue-50 p-3 rounded-lg">
                                             <Icon className="h-6 w-6 text-blue-600" />
                                         </div>
                                         <div>
                                             <h4 className="font-semibold text-[#09046b] mb-1">{info.title}</h4>
-                                            {info.link !== "#" ? (
-                                                <a
-                                                    href={info.link}
-                                                    className="text-gray-600 hover:text-blue-600 transition-colors"
-                                                >
-                                                    {info.detail}
-                                                </a>
-                                            ) : (
-                                                <p className="text-gray-600">{info.detail}</p>
-                                            )}
+                                            <p className={`${info.link !== "#" ? "text-gray-600 hover:text-blue-600" : "text-gray-600"} transition-colors`}>
+                                                {info.detail}
+                                            </p>
                                         </div>
                                     </div>
                                 );
@@ -232,7 +242,7 @@ const Contact = () => {
 
                                     <button
                                         type="submit"
-                                        className="w-full btn-primary flex items-center justify-center group bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg transition-colors transition-transform duration-300 hover:scale-101"
+                                        className="w-full btn-primary flex items-center justify-center group bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg transition-colors duration-300 hover:scale-101"
                                     >
                                         <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300 hover:scale-105 " />
                                         Solicitar Demo Gratuita

@@ -1,134 +1,105 @@
-import { ArrowRight, Play, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 import { smoothScrollTo } from '../../utils';
+import { GrMapLocation } from "react-icons/gr";
+import { FiTruck } from "react-icons/fi";
 
 const Hero = () => {
     return (
         <section
             id="inicio"
-            className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-10  ">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Contenido de texto */}
-                    <div className="lg:pr-8 pt-10">
+            className="relative py-18 bg-gradient-to-br from-indigo-50 via-blue-50 to-blue-100 overflow-hidden"
+            style={{
+                background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #dbeafe 100%)'
+            }}>
+            {/* Borde inferior ondulado */}
+            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+                <svg
+                    className="relative block w-full h-12 sm:h-16 md:h-20"
+                    data-name="Layer 1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1200 120"
+                    preserveAspectRatio="none"
+                >
+                    <path
+                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,800.21,0,0,1,0,27.35V120H1200V95.8C1132.19,100.63,1055.71,111.31,985.66,92.83Z"
+                        className="fill-white"
+                    ></path>
+                </svg>
+            </div>
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Div principal que contiene todo */}
+                <div className="flex flex-col space-y-12">
+
+                    {/* Div superior - Contenido principal */}
+                    <div className="flex flex-col md:flex-row gap-12 items-center">
+
+                        {/* Div izquierda - Contenido de texto */}
+                        <div className="w-full md:w-1/2 order-1 md:order-1">
+
+                            <h1 className="text-5xl sm:text-6xl font-bold text-[#09046b] mb-10 leading-12 sm:leading-16 ">
+                                Transforma tu
+                                <span className="text-blue-600"> fabrica</span> con
+                                <span className="text-blue-600"> FabriApp</span>
+                            </h1>
 
 
-                        <h1 className="text-4xl lg:text-6xl font-bold text-[#09046b] mb-6 leading-tight">
-                            Transforma tu
-                            <span className="text-blue-600"> fábrica</span> con
-                            <span className="text-blue-600"> FabriApp</span>
-                        </h1>
 
-                        <p className="text-xl text-gray-600 mb-8  leading-[1.3]">
-                            Sistema integral de gestión que revoluciona la forma en que manejas inventarios,
-                            recetas, producción y rutas de reparto. Todo en tiempo real, desde una sola plataforma.
-                        </p>
-
-                        {/* Beneficios clave */}
-                        <div className="mb-8 space-y-3">
-                            <div className="flex items-center space-x-3">
-                                <CheckCircle className="h-5 w-5 text-green-500" />
-                                <span className="text-gray-700">Control total de inventarios en tiempo real</span>
-                            </div>
-                            <div className="flex items-center space-x-3">
-                                <CheckCircle className="h-5 w-5 text-green-500" />
-                                <span className="text-gray-700">Gestión inteligente de recetas y producción</span>
-                            </div>
-                            <div className="flex items-center space-x-3">
-                                <CheckCircle className="h-5 w-5 text-green-500" />
-                                <span className="text-gray-700">Rutas optimizadas y seguimiento de repartidores</span>
+                            {/* Beneficios clave */}
+                            <div className="mb-8 space-y-3">
+                                <div className="flex items-center space-x-3 leading-5">
+                                    <CheckCircle className="h-5 w-5 text-green-500" />
+                                    <span className="text-gray-700 text-xl leading-5">Control total de inventarios en tiempo real</span>
+                                </div>
+                                <div className="flex items-center space-x-3 leading-5">
+                                    <CheckCircle className="h-5 w-5 text-green-500" />
+                                    <span className="text-gray-700 text-xl leading-5">Gestión inteligente de recetas y producción</span>
+                                </div>
+                                <div className="flex items-center space-x-3 leading-5">
+                                    <CheckCircle className="h-5 w-5 text-green-500" />
+                                    <span className="text-gray-700 text-xl leading-5">Rutas optimizadas y seguimiento de repartidores</span>
+                                </div>
                             </div>
                         </div>
 
-                        {/* Botones de acción */}
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <button
-                                onClick={() => smoothScrollTo('contacto')}
-                                className="btn-primary inline-flex items-center justify-center group bg-blue-600 hover:bg-blue-700 text-white py-2 px-3 rounded transition-transform duration-200 hover:scale-105"
-                            >
-                                Empezar gratis ahora
-                                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                            </button>
-                            <button
-                                onClick={() => smoothScrollTo('productos')}
-                                className="btn-secondary inline-flex items-center justify-center group bg-green-200 hover:bg-green-300 text-green-800 py-2 px-3 rounded transition-transform duration-200 hover:scale-105"
-                            >
-                                <Play className="mr-2 h-5 w-5" />
-                                Ver demo en vivo
-                            </button>
-                        </div>
+                        {/* Div derecha - Imagen */}
+                        <div className="w-full md:w-1/2 order-2 md:order-2">
+                            <div className="relative">
+                                {/* FabriApp Screenshot */}
+                                <div className="bg-white rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-300">
+                                    <img
+                                        src="https://res.cloudinary.com/duhursjga/image/upload/v1756784614/SystemApp/FabriApp/fabriapp-website/fabriapp-hero.png"
+                                        alt="FabriApp Dashboard"
+                                        className="w-full h-auto rounded-xl object-cover"
+                                        loading="lazy"
+                                    />
+                                </div>
 
-                        {/* Estadísticas */}
-                        <div className="mt-12 pt-8 border-t border-gray-200">
-                            <div className="grid grid-cols-3 gap-8">
-                                <div className="text-center">
-                                    <div className="text-2xl lg:text-3xl font-bold text-blue-600">500+</div>
-                                    <div className="text-sm text-gray-600">Fábricas confían en nosotros</div>
+                                {/* Elementos flotantes */}
+                                <div className="absolute -top-4 -right-4 bg-green-400 text-white p-3 rounded-full shadow-lg animate-bounce">
+                                    <GrMapLocation style={{ fontSize: '1.5rem' }} />
                                 </div>
-                                <div className="text-center">
-                                    <div className="text-2xl lg:text-3xl font-bold text-blue-600">99.9%</div>
-                                    <div className="text-sm text-gray-600">Tiempo de actividad</div>
-                                </div>
-                                <div className="text-center">
-                                    <div className="text-2xl lg:text-3xl font-bold text-blue-600">24/7</div>
-                                    <div className="text-sm text-gray-600">Soporte técnico</div>
+                                <div className="absolute -bottom-4 -left-4 bg-blue-400 text-white p-3 rounded-full shadow-lg animate-pulse">
+                                    <FiTruck style={{ fontSize: '1.5rem' }} />
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    {/* Imagen/Gráfico */}
-                    <div className="lg:pl-8">
-                        <div className="relative">
-                            {/* Dashboard mockup */}
-                            <div className="bg-white rounded-2xl shadow-2xl p-6 transform rotate-2 hover:rotate-0 transition-transform duration-300">
-                                <div className="bg-gray-100 rounded-lg p-4 mb-4">
-                                    <div className="flex items-center justify-between mb-3">
-                                        <h3 className="font-semibold text-gray-800">Panel de Control</h3>
-                                        <div className="flex space-x-1">
-                                            <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                                            <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                                            <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                                        </div>
-                                    </div>
-
-                                    {/* Métricas del dashboard */}
-                                    <div className="grid grid-cols-2 gap-3 mb-4">
-                                        <div className="bg-blue-50 p-3 rounded-lg">
-                                            <div className="text-sm text-blue-600">Inventario</div>
-                                            <div className="text-lg font-bold text-blue-800">2,847</div>
-                                            <div className="text-xs text-green-600">+12% esta semana</div>
-                                        </div>
-                                        <div className="bg-green-50 p-3 rounded-lg">
-                                            <div className="text-sm text-green-600">Producción</div>
-                                            <div className="text-lg font-bold text-green-800">98.5%</div>
-                                            <div className="text-xs text-green-600">Eficiencia</div>
-                                        </div>
-                                    </div>
-
-                                    {/* Gráfico simple */}
-                                    <div className="bg-white p-3 rounded-lg">
-                                        <div className="flex items-end space-x-1 h-20">
-                                            <div className="bg-blue-400 w-4 h-12 rounded-t"></div>
-                                            <div className="bg-blue-500 w-4 h-16 rounded-t"></div>
-                                            <div className="bg-blue-600 w-4 h-20 rounded-t"></div>
-                                            <div className="bg-blue-500 w-4 h-14 rounded-t"></div>
-                                            <div className="bg-blue-400 w-4 h-18 rounded-t"></div>
-                                            <div className="bg-blue-600 w-4 h-16 rounded-t"></div>
-                                            <div className="bg-blue-500 w-4 h-12 rounded-t"></div>
-                                        </div>
-                                        <div className="text-xs text-gray-500 mt-2">Ventas últimos 7 días</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Elementos flotantes */}
-                            <div className="absolute -top-4 -right-4 bg-green-400 text-white p-3 rounded-full shadow-lg animate-bounce">
-                                📊
-                            </div>
-                            <div className="absolute -bottom-4 -left-4 bg-blue-400 text-white p-3 rounded-full shadow-lg animate-pulse">
-                                🚚
-                            </div>
-                        </div>
+                    {/* Botones de acción */}
+                    <div className="flex flex-col sm:flex-row gap-4 pt-5">
+                        <button
+                            onClick={() => smoothScrollTo('contacto')}
+                            className="btn-primary inline-flex items-center justify-center group bg-blue-600 hover:bg-blue-700 text-white py-2 px-3 rounded transition-transform duration-200 hover:scale-105"
+                        >
+                            Empezar gratis ahora
+                            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                        </button>
+                        {/* <button
+                                    onClick={() => smoothScrollTo('productos')}
+                                    className="btn-secondary inline-flex items-center justify-center group bg-green-200 hover:bg-green-300 text-green-800 py-2 px-3 rounded transition-transform duration-200 hover:scale-105"
+                                >
+                                    <Play className="mr-2 h-5 w-5" />
+                                    Ver demo en vivo
+                                </button> */}
                     </div>
                 </div>
             </div>
