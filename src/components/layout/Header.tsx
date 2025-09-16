@@ -1,9 +1,32 @@
-import { useState } from 'react';
-import { Menu, X, Factory } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { Menu, X, Factory, LogIn, UserRoundPlus } from 'lucide-react';
 import { smoothScrollTo } from '../../utils';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
+
+    // Efecto para cerrar el menú al hacer clic fuera
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (isMenuOpen && 
+                menuRef.current && 
+                buttonRef.current &&
+                !menuRef.current.contains(event.target as Node) &&
+                !buttonRef.current.contains(event.target as Node)) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        if (isMenuOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMenuOpen]);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -26,7 +49,7 @@ const Header = () => {
                     </div>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center space-x-6">
+                    <nav className="hidden md:flex items-center space-x-5 lg:space-x-6">
                         <button
                             onClick={() => handleNavClick('inicio')}
                             className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer"
@@ -60,33 +83,42 @@ const Header = () => {
                     </nav>
 
                     {/* CTA Button */}
-                    <div className="hidden md:flex items-center space-x-4 lg:block">
-                        {/*<button 
-                        onClick={() => handleNavClick('productos')} 
-                        className="btn-secondary bg-blue-600 py-2 rounded-3xl text-white px-3 hover:bg-blue-700 cursor-pointer transition-transform duration-200 hover:scale-105">
-                            Ver Demo
-                        </button>*/}
+                    <div className="hidden md:flex items-center space-x-4">
+                        {<button
+                            onClick={() => window.open('https://www.fabriapp.com/empresa/login', '_blank')}
+                            className="flex items-center justify-center gap-2 btn-secondary bg-blue-600 py-2 rounded-3xl text-white px-2 lg:px-3 hover:bg-blue-700 cursor-pointer transition-transform duration-200 hover:scale-105">
+                            <LogIn className="px-0" />
+                            <span className='md:hidden lg:inline'>Iniciar sesión</span>
+                        </button>}
                         <button
                             onClick={() => window.open('https://www.fabriapp.com/empresa/register', '_blank')}
-                            className="btn-primary bg-[#09046b] py-2 rounded-3xl text-white px-3 hover:bg-[#09046b]/90 cursor-pointer transition-transform duration-200 hover:scale-105">
-                            Empezar ya!
+                            className="flex items-center justify-center gap-2 btn-primary bg-[#09046b] py-2 rounded-3xl text-white px-2 lg:px-3 hover:bg-[#09046b]/90 cursor-pointer transition-transform duration-200 hover:scale-105">
+                            <UserRoundPlus className="px-0" />
+                            <span className='md:hidden lg:inline'>Registrarse</span>
                         </button>
                     </div>
 
                     {/* Mobile menu button */}
-                    <div className="md:hidden ">
+                    <div className="md:hidden flex items-center space-x-2 gap-1 ">
                         <button
-                            onClick={toggleMenu}
-                            className="text-gray-700 hover:text-blue-600 transition-colors "
+                            onClick={() => window.open('https://www.fabriapp.com/empresa/login', '_blank')}
+                            className="text-gray-700 hover:text-blue-600 transition-colors shadow-sm p-2 rounded-full"
                         >
-                            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                            <LogIn className="h-5 w-5" />
+                        </button>
+                        <button
+                            ref={buttonRef}
+                            onClick={toggleMenu}
+                            className="text-gray-700 hover:text-blue-600 transition-colors shadow-sm p-2 rounded-full"
+                        >
+                            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                         </button>
                     </div>
                 </div>
 
                 {/* Mobile Navigation */}
                 {isMenuOpen && (
-                    <div className="md:hidden border-t border-gray-200 py-4">
+                    <div ref={menuRef} className="md:hidden border-t border-gray-200 py-4">
                         <nav className="flex flex-col space-y-4">
                             <button
                                 onClick={() => handleNavClick('inicio')}
@@ -119,9 +151,9 @@ const Header = () => {
                                 Contacto
                             </button>
                             <div className="pt-4 space-y-2">
-                                <button onClick={() => handleNavClick('productos')} className="block btn-secondary text-center w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg">
+                                {/*<button onClick={() => handleNavClick('productos')} className="block btn-secondary text-center w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg">
                                     Ver Demo
-                                </button>
+                                </button>*/}
                                 <button onClick={() => window.open('https://www.fabriapp.com/empresa/register', '_blank')} className="block btn-primary text-center w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg">
                                     Empezar Ahora
                                 </button>

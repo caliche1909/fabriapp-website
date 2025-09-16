@@ -1,4 +1,5 @@
 import { Users, Award, Clock, Globe } from 'lucide-react';
+import { smoothScrollTo } from '../../utils';
 
 const About = () => {
   const stats = [
@@ -165,7 +166,7 @@ const About = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {team.map((member, index) => (
-              <div key={index} className="card p-8 text-center group hover:shadow-xl rounded-lg transition-all duration-300">
+              <div key={index} className="card p-8 text-center group hover:shadow-xl rounded-lg transition-all duration-300 hover:cursor-pointer">
                 <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
                   {member.image}
                 </div>
@@ -193,14 +194,20 @@ const About = () => {
               Únete a cientos de empresas que ya han transformado sus operaciones con FabriApp.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#contacto" className="btn-primary">
+              <button 
+                onClick={() => window.open('https://www.fabriapp.com/empresa/register', '_blank')}
+                className="bg-transparent border-1 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white py-3 px-6 rounded-3xl transition-all duration-300 font-medium"
+              >
                 Empezar ahora
-              </a>
-              <a href="#productos" className="btn-secondary">
+              </button>
+              <button 
+                onClick={() => smoothScrollTo('productos')}
+                className="bg-transparent border-1 border-[#09046b] text-[#09046b] hover:bg-[#09046b] hover:text-white py-3 px-6 rounded-3xl transition-all duration-300 font-medium"
+              >
                 Ver planes
-              </a>
+              </button>
             </div>
-          </div>
+          </div>  
         </div>
       </div>
     </section>

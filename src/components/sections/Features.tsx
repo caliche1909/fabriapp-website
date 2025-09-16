@@ -1,4 +1,5 @@
 import { Package, ChefHat, Factory, MapPin, BarChart3, Users, Shield, Smartphone } from 'lucide-react';
+import { smoothScrollTo } from '../../utils';
 
 const Features = () => {
   const features = [
@@ -53,15 +54,15 @@ const Features = () => {
   ];
 
   const getColorClasses = (color: string) => {
-    const colorMap: Record<string, { bg: string; text: string; border: string }> = {
-      blue: { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200' },
-      green: { bg: 'bg-green-50', text: 'text-green-600', border: 'border-green-200' },
-      purple: { bg: 'bg-purple-50', text: 'text-purple-600', border: 'border-purple-200' },
-      orange: { bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-200' },
-      red: { bg: 'bg-red-50', text: 'text-red-600', border: 'border-red-200' },
-      indigo: { bg: 'bg-indigo-50', text: 'text-indigo-600', border: 'border-indigo-200' },
-      gray: { bg: 'bg-gray-50', text: 'text-gray-600', border: 'border-gray-200' },
-      teal: { bg: 'bg-teal-50', text: 'text-teal-600', border: 'border-teal-200' }
+    const colorMap: Record<string, { bg: string; text: string; border: string; cardBg: string }> = {
+      blue: { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200', cardBg: 'bg-blue-50/20' },
+      green: { bg: 'bg-green-50', text: 'text-green-600', border: 'border-green-200', cardBg: 'bg-green-50/20' },
+      purple: { bg: 'bg-purple-50', text: 'text-purple-600', border: 'border-purple-200', cardBg: 'bg-purple-50/20' },
+      orange: { bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-200', cardBg: 'bg-orange-50/20' },
+      red: { bg: 'bg-red-50', text: 'text-red-600', border: 'border-red-200', cardBg: 'bg-red-50/20' },
+      indigo: { bg: 'bg-indigo-50', text: 'text-indigo-600', border: 'border-indigo-200', cardBg: 'bg-indigo-50/20' },
+      gray: { bg: 'bg-gray-50', text: 'text-gray-600', border: 'border-gray-200', cardBg: 'bg-gray-50/20' },
+      teal: { bg: 'bg-teal-50', text: 'text-teal-600', border: 'border-teal-200', cardBg: 'bg-teal-50/20' }
     };
     return colorMap[color] || colorMap.blue;
   };
@@ -76,7 +77,7 @@ const Features = () => {
             <span className="text-blue-600"> fábrica</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            FabriApp integra todas las funcionalidades esenciales para optimizar 
+            FabriApp integra todas las funcionalidades esenciales para optimizar
             cada aspecto de tu operación fabril en una sola plataforma intuitiva.
           </p>
         </div>
@@ -86,16 +87,16 @@ const Features = () => {
           {features.map((feature, index) => {
             const colors = getColorClasses(feature.color);
             const Icon = feature.icon;
-            
+
             return (
               <div
                 key={index}
-                className={`feature-card group ${colors.border} border-2 border-opacity-0 hover:border-opacity-300 p-5 rounded-lg`}
+                className={`feature-card group ${colors.border} ${colors.cardBg} border-2 border-opacity-0 hover:border-opacity-300 p-5 rounded-lg transition-all duration-300`}
               >
                 <div className={`${colors.bg} w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <Icon className={`h-8 w-8 ${colors.text}`} />
                 </div>
-                
+
                 <h3 className="text-xl font-bold text-[#09046b] mb-4">
                   {feature.title}
                 </h3>
@@ -118,12 +119,18 @@ const Features = () => {
               Únete a cientos de fábricas que ya han transformado su productividad con FabriApp.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#contacto" className="btn-primary">
+              <button
+                onClick={() => window.open('https://www.fabriapp.com/empresa/register', '_blank')}
+                className="bg-transparent border-1 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white py-3 px-6 rounded-3xl transition-all duration-300 font-medium"
+              >
                 Comenzar prueba gratuita
-              </a>
-              <a href="#demo" className="btn-secondary">
+              </button>
+              <button
+                onClick={() => smoothScrollTo('contacto')}
+                className="bg-transparent border-1 border-[#09046b] text-[#09046b] hover:bg-[#09046b] hover:text-white py-3 px-6 rounded-3xl transition-all duration-300 font-medium"
+              >
                 Agendar demostración
-              </a>
+              </button>
             </div>
           </div>
         </div>

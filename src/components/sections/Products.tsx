@@ -125,15 +125,15 @@ const Products = () => {
                     {plans.map((plan, index) => (
                         <div
                             key={index}
-                            className={`card p-8 relative shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-lg ${plan.highlighted
+                            className={`card p-6 mx-2 relative shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-lg ${plan.highlighted
                                     ? 'ring-2 ring-blue-500 shadow-xl scale-105'
                                     : 'hover:shadow-xl'
-                                } transition-all duration-300 transition-transform duration-200 ease-out hover:-translate-y-1 active:translate-y-0 border-t border-gray-200 cursor-pointer`}
+                                } duration-300 transition-transform ease-out hover:-translate-y-1 active:translate-y-0 border-t border-gray-200 cursor-pointer`}
                         >
                             {plan.highlighted && (
                                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                                    <span className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center">
-                                        <Star className="h-4 w-4 mr-1" />
+                                    <span className="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
+                                        <Star className="h-4 w-4 mr-2 flex-shrink-0" />
                                         Más Popular
                                     </span>
                                 </div>

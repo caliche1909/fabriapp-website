@@ -57,19 +57,19 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-blue-400" />
-                <a href="mailto:contacto@fabriapp.com" className="hover:text-white transition-colors">
-                  contacto@fabriapp.com
+                <a href="mailto:soporte@fabriapp.com" className="hover:text-white transition-colors">
+                  soporte@fabriapp.com
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-400" />
-                <a href="tel:+15551234567" className="hover:text-white transition-colors">
-                  +1 (555) 123-4567
+                <a href="tel:+573232951780" className="hover:text-white transition-colors">
+                  +57 323 295 1780
                 </a>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="h-5 w-5 text-blue-400" />
-                <span>123 Industrial Ave, Tech District</span>
+                <MapPin className="h-5 w-5 min-h-5 min-w-5 text-blue-400" />
+                <span>Calle 18 # 16-10 Centro, Pasto, Nariño, Colombia</span>
               </div>
             </div>
           </div>
