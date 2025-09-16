@@ -126,8 +126,8 @@ const Products = () => {
                         <div
                             key={index}
                             className={`card p-6 mx-2 relative shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-lg ${plan.highlighted
-                                    ? 'ring-2 ring-blue-500 shadow-xl scale-105'
-                                    : 'hover:shadow-xl'
+                                ? 'ring-2 ring-blue-500 shadow-xl scale-105'
+                                : 'hover:shadow-xl'
                                 } duration-300 transition-transform ease-out hover:-translate-y-1 active:translate-y-0 border-t border-gray-200 cursor-pointer`}
                         >
                             {plan.highlighted && (
@@ -164,8 +164,8 @@ const Products = () => {
 
                             <button
                                 className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors duration-200 ${plan.highlighted
-                                        ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                                        : 'bg-gray-100 hover:bg-gray-200 text-[#09046b]'
+                                    ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                                    : 'bg-gray-100 hover:bg-gray-200 text-[#09046b]'
                                     }`}
                             >
                                 {plan.cta}
@@ -185,12 +185,17 @@ const Products = () => {
                             te devolvemos tu dinero sin preguntas.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="#contacto" className="btn-primary">
+                            <button
+                                onClick={() => window.open('https://www.fabriapp.com/empresa/register', '_blank')}
+                                className="bg-transparent border-1 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white py-3 px-6 rounded-3xl transition-all duration-300 font-medium">
                                 Comenzar prueba gratuita
-                            </a>
-                            <a href="#contacto" className="btn-secondary">
+                            </button>
+                            <button
+                                onClick={() => window.open('https://wa.me/573232951780?text=Hola%2C%20vengo%20de%20la%20página%20de%20FabriApp%2C%20y%20estoy%20aquí%20porque%20me%20gustaría%20tener%20más%20información', '_blank')}
+                                className="bg-transparent border-1 border-[#09046b] text-[#09046b] hover:bg-[#09046b] hover:text-white py-3 px-6 rounded-3xl transition-all duration-300 font-medium"
+                            >
                                 Hablar con un experto
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
