@@ -55,14 +55,14 @@ const Features = () => {
 
   const getColorClasses = (color: string) => {
     const colorMap: Record<string, { bg: string; text: string; border: string; cardBg: string }> = {
-      blue: { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200', cardBg: 'bg-blue-50/20' },
-      green: { bg: 'bg-green-50', text: 'text-green-600', border: 'border-green-200', cardBg: 'bg-green-50/20' },
-      purple: { bg: 'bg-purple-50', text: 'text-purple-600', border: 'border-purple-200', cardBg: 'bg-purple-50/20' },
-      orange: { bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-200', cardBg: 'bg-orange-50/20' },
-      red: { bg: 'bg-red-50', text: 'text-red-600', border: 'border-red-200', cardBg: 'bg-red-50/20' },
-      indigo: { bg: 'bg-indigo-50', text: 'text-indigo-600', border: 'border-indigo-200', cardBg: 'bg-indigo-50/20' },
-      gray: { bg: 'bg-gray-50', text: 'text-gray-600', border: 'border-gray-200', cardBg: 'bg-gray-50/20' },
-      teal: { bg: 'bg-teal-50', text: 'text-teal-600', border: 'border-teal-200', cardBg: 'bg-teal-50/20' }
+      blue: { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200', cardBg: 'bg-blue-50/60' },
+      green: { bg: 'bg-green-50', text: 'text-green-600', border: 'border-green-200', cardBg: 'bg-green-50/60' },
+      purple: { bg: 'bg-purple-50', text: 'text-purple-600', border: 'border-purple-200', cardBg: 'bg-purple-50/60' },
+      orange: { bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-200', cardBg: 'bg-orange-50/60' },
+      red: { bg: 'bg-red-50', text: 'text-red-600', border: 'border-red-200', cardBg: 'bg-red-50/60' },
+      indigo: { bg: 'bg-indigo-50', text: 'text-indigo-600', border: 'border-indigo-200', cardBg: 'bg-indigo-50/60' },
+      gray: { bg: 'bg-gray-50', text: 'text-gray-600', border: 'border-gray-200', cardBg: 'bg-gray-50/60' },
+      teal: { bg: 'bg-teal-50', text: 'text-teal-600', border: 'border-teal-200', cardBg: 'bg-teal-50/60' }
     };
     return colorMap[color] || colorMap.blue;
   };

@@ -107,7 +107,7 @@ const Products = () => {
                     </h3>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {modules.map((module, index) => (
-                            <div key={index} className="card p-6 text-center hover:shadow-xl transition-all duration-300 shadow rounded-lg">
+                            <div key={index} className="card p-6 text-center bg-white hover:shadow-xl transition-all duration-300 shadow rounded-lg">
                                 <div className="text-4xl mb-4">{module.image}</div>
                                 <h4 className="text-lg font-semibold text-[#09046b] mb-2">
                                     {module.title}
@@ -125,7 +125,7 @@ const Products = () => {
                     {plans.map((plan, index) => (
                         <div
                             key={index}
-                            className={`card p-6 mx-2 relative shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-lg ${plan.highlighted
+                            className={`card p-6 mx-2 relative bg-white shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-lg ${plan.highlighted
                                 ? 'ring-2 ring-blue-500 shadow-xl scale-105'
                                 : 'hover:shadow-xl'
                                 } duration-300 transition-transform ease-out hover:-translate-y-1 active:translate-y-0 border-t border-gray-200 cursor-pointer`}
